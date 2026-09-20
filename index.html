@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário do Dev - Blog</title>
+
+  <style>
+    :root {
+      --fundo: #f3f5f2;
+      --tinta: #16232b;
+      --tinta-suave: #4a5a63;
+      --azul: #1f6f8b;
+      --ambar: #f2b134;
+      --linha: #cdd6d2;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--tinta);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+    }
+
+    /* ---------- Cabeçalho ---------- */
+    header {
+      background: var(--tinta);
+      color: var(--fundo);
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    header h1 {
+      max-width: 1100px;
+      margin: 0 auto 1rem;
+      font-size: 2.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    nav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 0.6rem 0;
+      color: var(--fundo);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-bottom-color: var(--ambar);
+    }
+
+    /* ---------- Layout principal ---------- */
+    .conteudo {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    main {
+      display: grid;
+      gap: 2rem;
+    }
+
+    article {
+      background: var(--branco);
+      border: 1px solid var(--linha);
+      padding: 1.5rem;
+    }
+
+    article h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    article p {
+      max-width: 65ch;
+      color: var(--tinta-suave);
+    }
+
+    article img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+
+    /* ---------- Aside e formulário ---------- */
+    aside {
+      background: var(--branco);
+      border: 1px solid var(--linha);
+      border-top: 6px solid var(--ambar);
+      padding: 1.5rem;
+      position: sticky;
+      top: 1rem;
+    }
+
+    aside h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    aside > p {
+      margin-top: 0;
+      color: var(--tinta-suave);
+      font-size: 0.95rem;
+    }
+
+    form div {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border: 1px solid #8a9a93;
+      border-radius: 4px;
+      background: var(--branco);
+      color: var(--tinta);
+      font: inherit;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    button:focus-visible,
+    input[type="checkbox"]:focus-visible {
+      outline: 3px solid var(--azul);
+      outline-offset: 2px;
+    }
+
+    .termos {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .termos input {
+      margin-top: 0.35rem;
+    }
+
+    .termos label {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      background: var(--azul);
+      color: var(--branco);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #185a72;
+    }
+
+    /* ---------- Rodapé ---------- */
+    footer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--tinta);
+      color: var(--fundo);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Telas pequenas ---------- */
+    @media (max-width: 800px) {
+      .conteudo {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Diário do Dev</h1>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="conteudo">
+
+    <main id="inicio">
+
+      <article id="sobre">
+        <h2>Por que usar HTML semântico?</h2>
+        <p>
+          Tags como header, nav, main, aside e footer descrevem o papel de cada parte da página.
+          Isso ajuda leitores de tela, mecanismos de busca e outras pessoas que leem o seu código
+          a entender a estrutura sem precisar adivinhar.
+        </p>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231F6F8B'/%3E%3Cpolyline points='300,150 220,225 300,300' fill='none' stroke='%23F3F5F2' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='500,150 580,225 500,300' fill='none' stroke='%23F3F5F2' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='420' y1='140' x2='380' y2='310' stroke='%23F2B134' stroke-width='22' stroke-linecap='round'/%3E%3C/svg%3E"
+          alt="Ilustração de colchetes de código com uma barra amarela no meio">
+      </article>
+
+      <article>
+        <h2>Como organizar os títulos da página</h2>
+        <p>
+          Cada página deve ter um único h1, que identifica o site ou o assunto principal.
+          Os títulos h2 dividem o conteúdo em seções, e os h3 detalham essas seções.
+          Pular níveis, como ir direto de h1 para h4, atrapalha a navegação de quem usa leitor de tela.
+        </p>
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%2316232B'/%3E%3Crect x='100' y='70' width='600' height='60' fill='%23F2B134'/%3E%3Crect x='100' y='150' width='400' height='190' fill='%231F6F8B'/%3E%3Crect x='520' y='150' width='180' height='190' fill='%23CDD6D2'/%3E%3Crect x='100' y='360' width='600' height='40' fill='%234A5A63'/%3E%3C/svg%3E"
+          alt="Diagrama de uma página com cabeçalho, conteúdo principal, barra lateral e rodapé">
+      </article>
+
+    </main>
+
+    <aside id="contato">
+      <h2>Receba novidades</h2>
+      <p>Preencha os campos abaixo para se inscrever no blog.</p>
+
+      <form method="get">
+
+        <div>
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            required
+            minlength="3"
+            pattern="[A-Za-zÀ-ÿ\s]{3,}"
+            title="Digite pelo menos 3 letras, sem números"
+            placeholder="Seu nome completo">
+        </div>
+
+        <div>
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="voce@exemplo.com">
+        </div>
+
+        <div>
+          <label for="idade">Idade</label>
+          <input
+            type="number"
+            id="idade"
+            name="idade"
+            required
+            min="18"
+            max="120"
+            placeholder="Entre 18 e 120">
+        </div>
+
+        <div>
+          <label for="assunto">Assunto de interesse</label>
+          <select id="assunto" name="assunto" required>
+            <option value="">Escolha um assunto</option>
+            <option value="html">HTML e CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="carreira">Carreira em tecnologia</option>
+          </select>
+        </div>
+
+        <div class="termos">
+          <input type="checkbox" id="termos" name="termos" value="aceito" required>
+          <label for="termos">Aceito os termos de uso</label>
+        </div>
+
+        <button type="submit">Inscrever-se</button>
+
+      </form>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Diário do Dev. Projeto de estudo em HTML.</p>
+  </footer>
+
+</body>
+</html>
