@@ -1,0 +1,73 @@
+HTML Puro(sem css)
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário do Dev - Blog</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Diário do Dev</h1>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inicio">
+
+    <article id="sobre">
+      <h2>Por que usar HTML semântico?</h2>
+      <p>
+        Tags como header, nav, main, aside e footer descrevem o papel de cada parte da página.
+        Isso ajuda leitores de tela, mecanismos de busca e outras pessoas que leem o seu código
+        a entender a estrutura sem precisar adivinhar.
+      </p>
+      <img
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231F6F8B'/%3E%3Cpolyline points='300,150 220,225 300,300' fill='none' stroke='%23F3F5F2' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='500,150 580,225 500,300' fill='none' stroke='%23F3F5F2' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='420' y1='140' x2='380' y2='310' stroke='%23F2B134' stroke-width='22' stroke-linecap='round'/%3E%3C/svg%3E"
+        alt="Ilustração de colchetes de código com uma barra amarela no meio">
+    </article>
+
+    <article>
+      <h2>Como organizar os títulos da página</h2>
+      <p>
+        Cada página deve ter um único h1, que identifica o site ou o assunto principal.
+        Os títulos h2 dividem o conteúdo em seções, e os h3 detalham essas seções.
+        Pular níveis, como ir direto de h1 para h4, atrapalha a navegação de quem usa leitor de tela.
+      </p>
+      <img
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%2316232B'/%3E%3Crect x='100' y='70' width='600' height='60' fill='%23F2B134'/%3E%3Crect x='100' y='150' width='400' height='190' fill='%231F6F8B'/%3E%3Crect x='520' y='150' width='180' height='190' fill='%23CDD6D2'/%3E%3Crect x='100' y='360' width='600' height='40' fill='%234A5A63'/%3E%3C/svg%3E"
+        alt="Diagrama de uma página com cabeçalho, conteúdo principal, barra lateral e rodapé">
+    </article>
+
+  </main>
+
+  <aside id="contato">
+    <h2>Receba novidades</h2>
+    <p>Preencha os campos abaixo para se inscrever no blog.</p>
+
+    <form method="get">
+
+      <div>
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          minlength="3"
+          pattern="[A-Za-zÀ-ÿ\s]{3,}"
+          title="Digite pelo menos 3 letras, sem números"
+          placeholder="Seu nome">
+      </div>
+
+      <div>
+        <label
+         
