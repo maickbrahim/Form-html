@@ -1,0 +1,244 @@
+:root {
+  --fundo: #f3f5f2;
+  --tinta: #16232b;
+  --tinta-suave: #4a5a63;
+  --azul: #1f6f8b;
+  --azul-escuro: #185a72;
+  --ambar: #f2b134;
+  --linha: #cdd6d2;
+  --branco: #ffffff;
+  --fundo-form: #dfe9ee;
+  --borda-form: #b8c9d1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+/* ---------- Cabeçalho ---------- */
+header {
+  background-color: var(--tinta);
+  color: var(--fundo);
+  padding: 1.5rem 1.5rem 0;
+}
+
+header h1 {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+  font-size: 2.2rem;
+}
+
+nav ul {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.6rem 0;
+  color: var(--fundo);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  border-bottom-color: var(--ambar);
+}
+
+/* ---------- Layout principal ---------- */
+.conteudo {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  align-items: start;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+article {
+  background-color: var(--branco);
+  border: 1px solid var(--linha);
+  padding: 1.5rem;
+}
+
+article h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+article p {
+  max-width: 65ch;
+  color: var(--tinta-suave);
+}
+
+article img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* ---------- Aside ---------- */
+aside {
+  position: sticky;
+  top: 1rem;
+}
+
+aside h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+aside > p {
+  margin-top: 0;
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+}
+
+/* ---------- Formulário ---------- */
+
+/* Container: largura máxima, padding e fundo diferente da página */
+.formulario {
+  max-width: 420px;
+  padding: 1.5rem;
+  background-color: var(--fundo-form);
+  border: 1px solid var(--borda-form);
+  border-radius: 8px;
+
+  /* Campos um embaixo do outro */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Cada campo: label em cima, input embaixo */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Bônus: nome e e-mail lado a lado */
+.linha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metade {
+  width: 48%;
+}
+
+/* Labels */
+.formulario label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+/* Inputs e select */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="number"],
+.formulario select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #8a9a93;
+  border-radius: 6px;
+  background-color: var(--branco);
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulario input:focus-visible,
+.formulario select:focus-visible,
+.formulario button:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+}
+
+/* Checkbox de termos */
+.termos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.termos label {
+  font-weight: 400;
+}
+
+/* Botão de enviar */
+.formulario button {
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--azul);
+  color: var(--branco);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: var(--azul-escuro);
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--tinta);
+  color: var(--fundo);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- Telas pequenas ---------- */
+@media (max-width: 800px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    position: static;
+  }
+}
+
+/* Em telas bem estreitas, nome e e-mail voltam a ficar um embaixo do outro */
+@media (max-width: 420px) {
+  .linha {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .metade {
+    width: 100%;
+  }
+}

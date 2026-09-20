@@ -4,215 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diário do Dev - Blog</title>
-
-  <style>
-    :root {
-      --fundo: #f3f5f2;
-      --tinta: #16232b;
-      --tinta-suave: #4a5a63;
-      --azul: #1f6f8b;
-      --ambar: #f2b134;
-      --linha: #cdd6d2;
-      --branco: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--fundo);
-      color: var(--tinta);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    h1, h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.2;
-    }
-
-    /* ---------- Cabeçalho ---------- */
-    header {
-      background: var(--tinta);
-      color: var(--fundo);
-      padding: 1.5rem 1.5rem 0;
-    }
-
-    header h1 {
-      max-width: 1100px;
-      margin: 0 auto 1rem;
-      font-size: 2.2rem;
-      letter-spacing: -0.01em;
-    }
-
-    nav ul {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      display: inline-block;
-      padding: 0.6rem 0;
-      color: var(--fundo);
-      text-decoration: none;
-      border-bottom: 3px solid transparent;
-    }
-
-    nav a:hover,
-    nav a:focus-visible {
-      border-bottom-color: var(--ambar);
-    }
-
-    /* ---------- Layout principal ---------- */
-    .conteudo {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    main {
-      display: grid;
-      gap: 2rem;
-    }
-
-    article {
-      background: var(--branco);
-      border: 1px solid var(--linha);
-      padding: 1.5rem;
-    }
-
-    article h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-
-    article p {
-      max-width: 65ch;
-      color: var(--tinta-suave);
-    }
-
-    article img {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin-top: 1rem;
-    }
-
-    /* ---------- Aside e formulário ---------- */
-    aside {
-      background: var(--branco);
-      border: 1px solid var(--linha);
-      border-top: 6px solid var(--ambar);
-      padding: 1.5rem;
-      position: sticky;
-      top: 1rem;
-    }
-
-    aside h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
-    }
-
-    aside > p {
-      margin-top: 0;
-      color: var(--tinta-suave);
-      font-size: 0.95rem;
-    }
-
-    form div {
-      margin-bottom: 1rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    select {
-      width: 100%;
-      padding: 0.6rem 0.7rem;
-      border: 1px solid #8a9a93;
-      border-radius: 4px;
-      background: var(--branco);
-      color: var(--tinta);
-      font: inherit;
-    }
-
-    input:focus-visible,
-    select:focus-visible,
-    button:focus-visible,
-    input[type="checkbox"]:focus-visible {
-      outline: 3px solid var(--azul);
-      outline-offset: 2px;
-    }
-
-    .termos {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .termos input {
-      margin-top: 0.35rem;
-    }
-
-    .termos label {
-      margin: 0;
-      font-weight: 400;
-    }
-
-    button {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 0;
-      border-radius: 4px;
-      background: var(--azul);
-      color: var(--branco);
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #185a72;
-    }
-
-    /* ---------- Rodapé ---------- */
-    footer {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: var(--tinta);
-      color: var(--fundo);
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    /* ---------- Telas pequenas ---------- */
-    @media (max-width: 800px) {
-      .conteudo {
-        grid-template-columns: 1fr;
-      }
-
-      aside {
-        position: static;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -262,32 +54,35 @@
       <h2>Receba novidades</h2>
       <p>Preencha os campos abaixo para se inscrever no blog.</p>
 
-      <form method="get">
+      <form class="formulario" method="get">
 
-        <div>
-          <label for="nome">Nome</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            required
-            minlength="3"
-            pattern="[A-Za-zÀ-ÿ\s]{3,}"
-            title="Digite pelo menos 3 letras, sem números"
-            placeholder="Seu nome completo">
+        <!-- Nome e e-mail lado a lado -->
+        <div class="linha">
+          <div class="campo metade">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              minlength="3"
+              pattern="[A-Za-zÀ-ÿ\s]{3,}"
+              title="Digite pelo menos 3 letras, sem números"
+              placeholder="Seu nome">
+          </div>
+
+          <div class="campo metade">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="voce@exemplo.com">
+          </div>
         </div>
 
-        <div>
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="voce@exemplo.com">
-        </div>
-
-        <div>
+        <div class="campo">
           <label for="idade">Idade</label>
           <input
             type="number"
@@ -299,7 +94,7 @@
             placeholder="Entre 18 e 120">
         </div>
 
-        <div>
+        <div class="campo">
           <label for="assunto">Assunto de interesse</label>
           <select id="assunto" name="assunto" required>
             <option value="">Escolha um assunto</option>
@@ -322,7 +117,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 Diário do Dev. Projeto de estudo em HTML.</p>
+    <p>&copy; 2026 Diário do Dev. Projeto de estudo em HTML e CSS.</p>
   </footer>
 
 </body>
